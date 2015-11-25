@@ -1,0 +1,325 @@
+$cont-size:30px;
+
+html,body{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	min-width: 1000px;
+}
+@mixin mix-main() {
+	width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+}
+// make things center,horizontal and vertical
+@mixin trans-center($trans-top:-50%) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,$trans-top);
+	-webkit-transform:translate(-50%,$trans-top);
+	-moz-transform:translate(-50%,$trans-top);
+	-o-transform:translate(-50%,$trans-top);
+}
+// make things center horizontal,but vertical controllable
+@mixin trans-top-center($top:0px) {
+	position: absolute;
+	left: 50%;
+	top: $top;
+	transform:translateX(-50%);
+	-webkit-transform:translateX(-50%);
+	-moz-transform:translateX(-50%);
+	-o-transform:translateX(-50%);
+}
+@mixin trans-bottom-center($bottom:0px) {
+	position: absolute;
+	left: 50%;
+	bottom: $bottom;
+	transform:translateX(-50%);
+	-webkit-transform:translateX(-50%);
+	-moz-transform:translateX(-50%);
+	-o-transform:translateX(-50%);
+}
+// make things center vertical,but borizontal controllable
+@mixin trans-left-center($left:0px) {
+	position: absolute;
+	left: $left;
+	top: 50%;
+	transform:translateY(-50%);
+	-webkit-transform:translateY(-50%);
+	-moz-transform:translateY(-50%);
+	-o-transform:translateY(-50%);
+}
+@mixin trans-right-center($right:0px) {
+	position: absolute;
+	right: $right;
+	top: 50%;
+	transform:translateY(-50%);
+	-webkit-transform:translateY(-50%);
+	-moz-transform:translateY(-50%);
+	-o-transform:translateY(-50%);
+}
+// make things position,left and top controllable
+@mixin trans-left-top($left:0px,$top:0px) {
+	position: absolute;
+	left: $left;
+	top:$top;
+}
+@mixin trans-right-top($right:0px,$top:0px) {
+	position: absolute;
+	right: $right;
+	top:$top;
+}
+// header nav part
+.header{
+	position: absolute;
+	top: 0;
+	height: 76px;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 0px 6px;
+	opacity:0.5;
+	.main{
+		@include mix-main();
+		.name{
+			display: block;
+			float: left;
+			line-height: 76px;
+			font-weight: bold;
+			font-size: $cont-size;
+		}
+		.contact{
+			float: right;
+			height: 100%;
+			a{
+				display: inline-block;
+				overflow: hidden;
+				margin: 23px 0 auto 28px;
+			}
+		}
+	}
+}
+
+
+// introduce part
+.intro{
+	// background
+	height: 915px;
+	width: 100%;
+	background-image: url(../img/intro-back.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	.main{
+		position: relative;
+		@include mix-main();
+		.title{
+			position: absolute;
+			top: 253px;
+			left: 0;
+		}
+		.content{
+			position: absolute;
+			top: 386px;
+			left: 0;
+		}
+		.apply-now{
+			position: absolute;
+			top: 548px;
+			left: 0;
+			width: 253px;
+			height: 57px;
+			box-sizing:border-box;
+			border:3px solid rgb(87, 86, 85);
+			border-radius: 3px;
+			background:{
+				image : url(../img/apply-now.png);
+				repeat:no-repeat;
+				position: center;
+			}
+		}
+		.apply-now:hover{
+			background: {
+				color: rgb(87,86,85);
+				image:url(../img/apply-now-hover.png);
+				repeat:no-repeat;
+				position: center;
+			}
+		}
+		.google-play{
+			position: absolute;
+			bottom: 66px;
+			left: 0;
+		}
+		.apple-store{
+			position: absolute;
+			bottom: 66px;
+			left: 163px;
+		}
+		.phone{
+			display: block;
+			position: absolute;
+			right: -61px;
+			bottom: 0;
+		}
+	}
+}
+
+
+// why you should join tollk ?
+// Because 3riccc wrote this page!
+.why{
+	height: 730px;
+	width: 100%;
+	.main{
+		position: relative;
+		@include mix-main();
+		.title{
+			@include trans-top-center(105px);
+		}
+		.content{
+			@include trans-top-center(179px);
+		}
+		#reason1,#reason2,#reason3{
+			width: 198px;
+			height: 198px;
+			border-radius: 50%;
+			overflow: hidden;
+		}
+		#reason1{
+			@include trans-left-top(22px,277px);
+		}
+		#reason2{
+			@include trans-left-top(401px,277px);
+		}
+		#reason3{
+			@include trans-left-top(778px,277px);
+		}
+		#reason1-word,#reason2-word,#reason3-word{
+			position: absolute;
+			top: 512px;
+		}
+		#reason1-word{
+			left: 0;
+		}
+		#reason2-word{
+			left: 50%;
+			transform:translateX(-50%);
+			-webkit-transform:translateX(-50%);
+			-moz-transform:translateX(-50%);
+			-o-transform:translateX(-50%);
+		}
+		#reason3-word{
+			right: 0;
+		}
+	}
+}
+
+// they have joined us!
+.they{
+	background-color:rgb(244,244,244);
+	height: 837px;
+	width: 100%;
+	.main{
+		position: relative;
+		@include mix-main();
+		#triangle{
+			@include trans-top-center(0px);
+		}
+		.title{
+			@include trans-top-center(110px);
+		}
+		.content{
+			@include trans-top-center(183px);
+		}
+		.person1,.person2,.person3,.person4{
+			position: absolute;
+			height: 272px;
+			width: 215px;
+		}
+		.person1{
+			@include trans-left-top(0px,291px);
+		}
+		.person2{
+			@include trans-left-top(262px,291px);
+		}
+		.person3{
+			@include trans-left-top(523px,291px);
+		}
+		.person4{
+			right: 0;
+			top: 291px;
+		}
+		.person-name{
+			position: absolute;
+			height: 35px;
+			opacity:0.2;
+			background-color: black;
+			width:100%;
+			bottom: 0;
+			text-align: center;
+		}
+		.name{
+			display: block;
+			@include trans-bottom-center(0);
+			line-height: 35px;
+			font-weight: bold;
+			color: white;
+		}
+		// what they say
+		.person1-word,.person2-word,.person3-word,.person4-word{
+			width: 215px;
+			font-size: 18px;
+			line-height: 25px;
+		}
+		.person1-word{
+			@include trans-left-top(0,596px);
+		}
+		.person2-word{
+			display: block;
+			@include trans-left-top(262px,596px);
+		}
+		.person3-word{
+			@include trans-left-top(523px,596px);
+		}
+		.person4-word{
+			@include trans-left-top(788px,596px);
+
+		}
+	}
+}
+// footer
+.footer{
+	height: 210px;
+	width: 100%;
+	.main{
+		position: relative;
+		@include mix-main();
+		.logo{
+			@include trans-left-center();
+		}
+		.contact{
+			@include trans-right-top(0px,63px);
+			a{
+				margin-left: 20px;
+			}
+		}
+		.about-us{
+			position: relative;
+			width: 509px;
+			#about-us{
+				@include trans-left-center();
+			}
+			#about-us:hover{
+				@include trans-left-center();
+				cursor: pointer;
+			}
+			.copyright{
+				@include trans-right-center();
+			}
+			font-size: 14px;
+			color:rgb(189,189,189);
+			@include trans-right-top(0px,120px);
+		}
+	}
+}
