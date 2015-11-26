@@ -11,6 +11,13 @@ html,body{
 	height: 100%;
 	margin: 0 auto;
 }
+@mixin mix-opacity($opa) {
+	opacity:$opa;
+	-moz-opacity:$opa;
+	-khtml-opacity:$opa;
+	filter:alpha(opacity=$opa*100);
+
+}
 // make things center,horizontal and vertical
 @mixin trans-center($trans-top:-50%) {
 	position: absolute;
@@ -77,16 +84,26 @@ html,body{
 	height: 76px;
 	width: 100%;
 	background-color: white;
-	box-shadow: 0px 0px 6px;
-	opacity:0.5;
+	box-shadow: 0px 0px 0px 6px;
+	-webkit-box-shadow: 0px 0px 6px;
+	-moz-box-shadow: 0px 0px 6px;
+	@include mix-opacity(0.5);
+}
+.header-content{
+	position: absolute;
+	top: 0;
+	height: 76px;
+	width: 100%;
 	.main{
 		@include mix-main();
+		position: relative;
 		.name{
 			display: block;
 			float: left;
-			line-height: 76px;
-			font-weight: bold;
-			font-size: $cont-size;
+			height:76px;
+			img{
+				margin: 23px auto 23px 0;
+			}
 		}
 		.contact{
 			float: right;
@@ -129,9 +146,6 @@ html,body{
 			left: 0;
 			width: 253px;
 			height: 57px;
-			box-sizing:border-box;
-			border:3px solid rgb(87, 86, 85);
-			border-radius: 3px;
 			background:{
 				image : url(../img/apply-now.png);
 				repeat:no-repeat;
@@ -140,8 +154,7 @@ html,body{
 		}
 		.apply-now:hover{
 			background: {
-				color: rgb(87,86,85);
-				image:url(../img/apply-now-hover.png);
+				image:url(../img/apply-now-active.png);
 				repeat:no-repeat;
 				position: center;
 			}
@@ -174,11 +187,16 @@ html,body{
 	.main{
 		position: relative;
 		@include mix-main();
+		overflow: hidden;
 		.title{
-			@include trans-top-center(105px);
+			display: block;
+			margin: 105px auto 0px;
+			// @include trans-top-center(105px);
 		}
 		.content{
-			@include trans-top-center(179px);
+			display: block;
+			margin: 31px auto 0px;
+			// @include trans-top-center(179px);
 		}
 		#reason1,#reason2,#reason3{
 			width: 198px;
@@ -187,30 +205,32 @@ html,body{
 			overflow: hidden;
 		}
 		#reason1{
-			@include trans-left-top(22px,277px);
+			margin: 71px auto 0px 22px;
+			position: absolute;
+			// @include trans-left-top(22px,277px);
 		}
 		#reason2{
-			@include trans-left-top(401px,277px);
+			margin: 71px auto 0px 403px;
+			position: absolute;
+			// @include trans-left-top(401px,277px);
 		}
 		#reason3{
-			@include trans-left-top(778px,277px);
+			margin: 71px auto 0px 778px;
+			position: absolute;
+			// @include trans-left-top(778px,277px);
 		}
 		#reason1-word,#reason2-word,#reason3-word{
 			position: absolute;
-			top: 512px;
+			margin-top: 305px;
 		}
 		#reason1-word{
-			left: 0;
+			margin-left: 0px;
 		}
 		#reason2-word{
-			left: 50%;
-			transform:translateX(-50%);
-			-webkit-transform:translateX(-50%);
-			-moz-transform:translateX(-50%);
-			-o-transform:translateX(-50%);
+			margin-left: 359px;
 		}
 		#reason3-word{
-			right: 0;
+			margin-left: 766px;
 		}
 	}
 }
@@ -223,68 +243,81 @@ html,body{
 	.main{
 		position: relative;
 		@include mix-main();
+		overflow: hidden;
 		#triangle{
-			@include trans-top-center(0px);
+			display: block;
+			margin: 0 auto;
 		}
 		.title{
-			@include trans-top-center(110px);
+			display: block;
+			margin: 92px auto 31px;
+			// @include trans-top-center(110px);
 		}
 		.content{
-			@include trans-top-center(183px);
+			display: block;
+			margin: 0 auto;
+			// @include trans-top-center(183px);
 		}
 		.person1,.person2,.person3,.person4{
 			position: absolute;
 			height: 272px;
 			width: 215px;
+			img{
+				position: absolute;
+			}
 		}
 		.person1{
-			@include trans-left-top(0px,291px);
+			margin: 81px 0px 33px;
+			// @include trans-left-top(0px,291px);
 		}
 		.person2{
-			@include trans-left-top(262px,291px);
+			margin: 81px 0 33px 261px;
+			// @include trans-left-top(262px,291px);
 		}
 		.person3{
-			@include trans-left-top(523px,291px);
+			margin: 81px 0 33px 46px+215px+46px+215px;
+			// @include trans-left-top(523px,291px);
 		}
 		.person4{
-			right: 0;
-			top: 291px;
+			margin: 81px 0 33px (46px+215px)*3;
+			// right: 0;
+			// top: 291px;
 		}
 		.person-name{
 			position: absolute;
-			height: 35px;
-			opacity:0.2;
+			@include mix-opacity(0.2);
 			background-color: black;
 			width:100%;
-			bottom: 0;
-			text-align: center;
+			margin-top: 237px;
+			height: 35px;
 		}
 		.name{
 			display: block;
-			@include trans-bottom-center(0);
+			width: 100%;
+			height: 35px;
+			position: absolute;
 			line-height: 35px;
 			font-weight: bold;
+			text-align: center;
 			color: white;
+			margin-top:237px;
 		}
 		// what they say
-		.person1-word,.person2-word,.person3-word,.person4-word{
-			width: 215px;
-			font-size: 18px;
-			line-height: 25px;
-		}
 		.person1-word{
-			@include trans-left-top(0,596px);
+			position: absolute;
+			margin: (81px+272px+33px) auto auto 0px;
 		}
 		.person2-word{
-			display: block;
-			@include trans-left-top(262px,596px);
+			position: absolute;
+			margin: (81px+272px+33px) auto auto 261px;
 		}
 		.person3-word{
-			@include trans-left-top(523px,596px);
+			position: absolute;
+			margin: (81px+272px+33px) auto auto 46px+215px+46px+215px;
 		}
 		.person4-word{
-			@include trans-left-top(788px,596px);
-
+			position: absolute;
+			margin: (81px+272px+33px) auto auto (46px+215px)*3;
 		}
 	}
 }
@@ -294,32 +327,28 @@ html,body{
 	width: 100%;
 	.main{
 		position: relative;
-		@include mix-main();
-		.logo{
-			@include trans-left-center();
-		}
-		.contact{
+ 		@include mix-main();
+ 		.logo{
+ 			display: block;
+ 			position: absolute;
+ 			margin: 75px auto 74px 0;
+ 		}
+ 		.contact{
 			@include trans-right-top(0px,63px);
-			a{
-				margin-left: 20px;
-			}
-		}
-		.about-us{
-			position: relative;
-			width: 509px;
-			#about-us{
-				@include trans-left-center();
-			}
-			#about-us:hover{
-				@include trans-left-center();
-				cursor: pointer;
-			}
-			.copyright{
-				@include trans-right-center();
-			}
-			font-size: 14px;
-			color:rgb(189,189,189);
-			@include trans-right-top(0px,120px);
-		}
+ 			a{
+ 				margin-left: 20px;
+ 			}
+ 		}
+ 		.about-us{
+ 			#about-us{
+ 				@include trans-right-top(420px,125px);
+ 			}
+ 			#about-us:hover{
+ 				cursor: pointer;
+ 			}
+ 			.copyright{
+ 				@include trans-right-top(0px,127px);
+ 			}
+ 		}
 	}
 }

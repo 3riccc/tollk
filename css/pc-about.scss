@@ -1,0 +1,146 @@
+$cont-size:30px;
+
+html,body{
+	height: 100%;
+	width: 100%;
+	position: relative;
+	min-width: 1000px;
+}
+@mixin mix-main() {
+	width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+}
+@mixin mix-opacity($opa) {
+	opacity:$opa;
+	-moz-opacity:$opa;
+	-khtml-opacity:$opa;
+	filter:alpha(opacity=$opa*100);
+}
+// make things position,left and top controllable
+@mixin trans-left-top($left:0px,$top:0px) {
+	position: absolute;
+	left: $left;
+	top:$top;
+}
+@mixin trans-right-top($right:0px,$top:0px) {
+	position: absolute;
+	right: $right;
+	top:$top;
+}
+
+
+// header nav part
+.header{
+	position: absolute;
+	top: 0;
+	height: 76px;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 0px 0px 6px;
+	-webkit-box-shadow: 0px 0px 6px;
+	-moz-box-shadow: 0px 0px 6px;
+	@include mix-opacity(0.5);
+}
+.header-content{
+	position: absolute;
+	top: 0;
+	height: 76px;
+	width: 100%;
+	.main{
+		@include mix-main();
+		position: relative;
+		.name{
+			display: block;
+			float: left;
+			height:76px;
+			img{
+				margin: 23px auto 23px 0;
+			}
+		}
+		.contact{
+			float: right;
+			height: 100%;
+			a{
+				display: inline-block;
+				overflow: hidden;
+				margin: 23px 0 auto 28px;
+			}
+		}
+	}
+}
+
+// main content
+.content{
+	height: 1101px;
+	background-image: url(../img/content-back.jpg);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	.main{
+		@include mix-main();
+		.cont-about-us{
+			margin:161px auto 0px 0px;
+		}
+		.cont-about-us-text{
+			margin-top: 23px;
+		}
+		.cont-meaning{
+			margin-top: 36px;
+		}
+		.cont-meaning-text{
+			margin-top:18px;
+		}
+		.cont-value{
+			margin-top:35px;
+		}
+		.cont-value-text{
+			margin-top:23px;
+		}
+		.cont-mission{
+			margin-top:36px;
+		}
+		.cont-mission-text{
+			margin-top:23px;
+		}
+		.cont-vision{
+			margin-top:39px;
+		}
+		.cont-vision-text{
+			margin-top:23px;
+		}
+
+	}
+}
+
+// footer
+.footer{
+	height: 210px;
+	width: 100%;
+	.main{
+		position: relative;
+ 		@include mix-main();
+ 		.logo{
+ 			display: block;
+ 			position: absolute;
+ 			margin: 75px auto 74px 0;
+ 		}
+ 		.contact{
+			@include trans-right-top(0px,63px);
+ 			a{
+ 				margin-left: 20px;
+ 			}
+ 		}
+ 		.about-us{
+ 			#about-us{
+ 				@include trans-right-top(420px,125px);
+ 			}
+ 			#about-us:hover{
+ 				cursor: pointer;
+ 			}
+ 			.copyright{
+ 				@include trans-right-top(0px,127px);
+ 			}
+ 		}
+	}
+}
