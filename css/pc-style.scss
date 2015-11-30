@@ -140,7 +140,7 @@ html,body{
 			top: 386px;
 			left: 0;
 		}
-		.apply-now{
+		#apply-now{
 			position: absolute;
 			top: 548px;
 			left: 0;
@@ -152,7 +152,7 @@ html,body{
 				position: center;
 			}
 		}
-		.apply-now:hover{
+		#apply-now:hover{
 			background: {
 				image:url(../img/apply-now-active.png);
 				repeat:no-repeat;
@@ -351,4 +351,87 @@ html,body{
  			}
  		}
 	}
+}
+// footer-bar
+.footer-bar{
+	width: 100%;
+	height: 8px;
+	background-color: rgb(160,150,129);
+}
+// lead user
+#lead1,#lead2,#lead3,#lead4{
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	.lead-content{
+		width: 1000px;
+		height: 653px;
+		margin: auto auto;
+		background-color: white;
+		position: relative;
+		.step-logo{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			height: 112px;
+		}
+		.step-content{
+			position: absolute;
+			left: 247px;
+			top: 47px;
+		}
+		.step-main{
+			position: absolute;
+			bottom: 105px;
+			left: 244px;
+		}
+		.step-progress{
+			position: absolute;
+			right: 466px;
+			bottom: 47px;
+		}
+		.step-left{
+			position: absolute;
+			top: 276px;
+			left: 60px;
+		}
+		.step-right{
+			position: absolute;
+			top: 276px;
+			right: 60px;
+		}
+	}
+}
+#lead1{
+	z-index: 900;
+
+}
+#lead2{
+	z-index:901;
+	.lead-content{
+		.step-content{
+			left: 320px;
+			top: 47px;
+		}
+	}
+}
+#lead3{
+	z-index: 902;
+}
+#lead4{
+	z-index: 903;
+}
+#lead-canvas{
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	@include mix-opacity(0.6);
+	z-index: 899;
 }
